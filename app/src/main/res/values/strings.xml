@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Bosta</string>
+    <string name="helloMessage" >Hello %1$s </string>
+    <string name="happyReviewMessage" > Welcome to your albums , Happy Browsing &#9995; </string>
+    <string name="albums" > Albums </string>
 </resources>
