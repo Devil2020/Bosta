@@ -23,7 +23,6 @@ import com.morse.bosta.databinding.ActivitySplashBinding
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
     var binding: ActivitySplashBinding? = null
-    val list: List<Int> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
