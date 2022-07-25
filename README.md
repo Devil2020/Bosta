@@ -21,7 +21,7 @@
 Go to the [Releases](https://github.com/Devil2020/Halan/releases/download/v1.0.0/app-sharedTestingResources-debug.apk) to download the latest APK.
 
 
-<img src=".images/halan.gif" align="right" width="32%"/>
+<img src=".images/bosta.gif" align="right" width="32%"/>
 
 ## Tech stack & Open-source libraries
 - Minimum SDK level 21
