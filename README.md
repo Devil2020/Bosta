@@ -30,47 +30,18 @@ Go to the [Releases](https://github.com/Devil2020/Halan/releases/download/v1.0.0
 - JetPack
     - Lifecycle - dispose of observing data when lifecycle state changes.
     - ViewModel - UI related data holder, lifecycle aware.
-    - Room Persistence - construct a database using the abstract layer.
+    - RunTime Cashe construct a Cache using the abstract layer .
 - Architecture
     - MVVM Architecture (View - DataBinding - ViewModel - Model)
-    - [Bindables](https://github.com/skydoves/bindables) - Android DataBinding kit for notifying data changes to UI layers.
+    - [Binding Adapter]() - Android DataBinding kit for notifying data changes to UI layers.
     - Repository pattern
 - [Retrofit2 & OkHttp3](https://github.com/square/retrofit) - construct the REST APIs and paging network data.
-- [Sandwich](https://github.com/skydoves/Sandwich) - construct lightweight http API response and handling error responses.
-- [Moshi](https://github.com/square/moshi/) - A modern JSON library for Kotlin and Java.
-- [Glide](https://github.com/bumptech/glide)
-- [WhatIf](https://github.com/skydoves/whatif) - checking nullable object and empty collections more fluently.
-- [Timber](https://github.com/JakeWharton/timber) - logging.
+- [Gson](https://github.com/square/moshi/) - A modern JSON library for Kotlin and Java.
+- [Picasso](https://square.github.io/picasso/)
 - [Material-Components](https://github.com/material-components/material-components-android) - Material design components like ripple animation, cardView.
 
-## Let's explore Architecture Components
-
-According to  [Android Documentation](https://developer.android.com/topic/libraries/architecture), Architecture Components are a set of Android libraries for structuring your app in a way that is robust, testable, and maintainable
-
-## Architecture
-
-[![](.images/Architecture-mvi.png)](.images/Architecture-mvi.png)
-
-# []() Presentation Layer Architecture patter is MVi and Clean Architecute 
-
-## []()UI Controllers
-
-are activities or fragments. The only job of UI controllers is to know how to display data and pass on UI events, such as the user pressing a button. UI Controllers neither contain the UI data, nor directly manipulate data.
-
-## []()Repository
-This class is the single source of truth for all of our app's data and acts as a clean API for the UI to communicate with . Presenter simply request data usecase then it request it to repository. They do not need to worry about whether the repository should load from the database or network, or how or when to persist the data. The repository manages all of this. As part of this responsibility, the repository is a mediator between the different data sources.
-
-## []()Remote Network Data Source
-
-Manages data from a remote data source, such as the internet.
-
-
-## []()Local Database Data Source
-
-Manages data from a local data source, such as SharedPreference.
-
 ### []()License:
-Copyright 2021 Mohammed Morse
+Copyright 2022 Mohammed Morse
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
