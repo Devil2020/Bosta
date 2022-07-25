@@ -19,7 +19,6 @@ class AlbumDetailsActivity :
 
     companion object {
         const val albumKey = "AlbumInformation"
-        const val photosCachKey = "PhotosCache"
     }
 
     private val vm by viewModels<AlbumsViewModel>()
@@ -72,14 +71,15 @@ class AlbumDetailsActivity :
             setupSearchView(menuItem = item)
             setupListener(object : SearchUtil.SearchViewListener {
                 override fun onSearchingStillRunning(searchText: String?) {
-
+                    vm.searchPhotos(searchText ?: "")
                 }
 
                 override fun onSearchButtonClicked(searchText: String?) {
+
                 }
 
                 override fun onClearAllSearchText() {
-
+                    vm.searchPhotos("")
                 }
             })
         }

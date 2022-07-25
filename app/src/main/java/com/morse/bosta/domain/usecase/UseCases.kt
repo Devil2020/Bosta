@@ -1,5 +1,7 @@
 package com.morse.bosta.domain.usecase
 
+import com.morse.bosta.cache.AlbumsCaching
+import com.morse.bosta.data.PhotosResponseItem
 import com.morse.bosta.data.UserResponseItem
 import com.morse.bosta.domain.repository.IAlbumsRepository
 import com.morse.bosta.domain.repository.IUserRepository
@@ -29,7 +31,29 @@ fun executeGetUserAlbumsUseCase(repository: IAlbumsRepository, userId: Int): Flo
 
 fun executeGetAlbumPhotosUseCase(repository: IAlbumsRepository, albumId: Int): Flow<Response> {
     return repository.loadAlbumPhotos(albumId)
-        .map { Response.Success(it) as Response }
+        .map {
+            executeSaveAlbumPhotosUseCase(albumId, it)
+            Response.Success(it) as Response
+        }
         .onStart { emit(Response.Loading) }
         .catch { emit(Response.Error(it.localizedMessage ?: it.toString())) }
 }
+
+fun executeSearchPhotosUseCase(
+    repository: IAlbumsRepository,
+    albumId: Int,
+    search: String
+): Flow<Response> {
+    return repository.loadAlbumPhotos(albumId)
+        .map { photoItems ->
+            Response.Success(photoItems.filter { photoItem ->
+                photoItem.title.contains(search)
+            }) as Response
+        }
+        .onStart { emit(Response.Loading) }
+        .catch { emit(Response.Error(it.localizedMessage ?: it.toString())) }
+}
+
+
+private fun executeSaveAlbumPhotosUseCase(albumId: Int, photos: List<PhotosResponseItem>) =
+    AlbumsCaching.saveAlbumPhotos(albumId, photos)

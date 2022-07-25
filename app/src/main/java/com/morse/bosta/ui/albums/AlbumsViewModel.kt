@@ -8,6 +8,7 @@ import com.morse.bosta.data.PhotosResponseItem
 import com.morse.bosta.domain.repository.IAlbumsRepository
 import com.morse.bosta.domain.usecase.executeGetAlbumPhotosUseCase
 import com.morse.bosta.domain.usecase.executeGetUserAlbumsUseCase
+import com.morse.bosta.domain.usecase.executeSearchPhotosUseCase
 import com.morse.bosta.utils.Response
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
@@ -40,8 +41,9 @@ class AlbumsViewModel @Inject constructor(
             .launchIn(viewModelScope)
     }
 
-    fun search(name: String) {
-
+    fun searchPhotos(name: String) {
+        executeSearchPhotosUseCase(repository, album.id, name).onEach { _albumPhotos.emit(it) }
+            .launchIn(viewModelScope)
     }
 
 }
