@@ -6,7 +6,7 @@
 
 <p align="center">
  <img alt="Medium" src="https://github.com/mohamedebrahim96/Namshi-Customer/workflows/Android%20CI/badge.svg"/></a>
-     <a href="https://wakatime.com/badge/user/25e36a94-826e-4b90-bf37-6d78d9028422/project/95a7afd7-03a0-430d-968a-bb8bdc0646d2.svg"/><img alt="API" src="https://wakatime.com/badge/user/25e36a94-826e-4b90-bf37-6d78d9028422/project/95a7afd7-03a0-430d-968a-bb8bdc0646d2.svg"/></a>
+     <a href="https://wakatime.com/badge/github/Devil2020/Bosta.svg"/><img alt="API" src="https://wakatime.com/badge/github/Devil2020/Bosta.svg"/></a>
      <a href="https://github.com/devil2020?tab=followers"><img alt="API" src="https://img.shields.io/github/stars/devil2020?style=social"/></a>
 
 </p>
