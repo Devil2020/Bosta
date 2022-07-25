@@ -1,5 +1,5 @@
 <p align="center">
-<img src=".imgs/cover.png"/>
+<img src="cover.png"/>
 </p>
 
 <h1 align="center">Bosta Task</h1>
