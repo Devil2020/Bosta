@@ -8,9 +8,7 @@ import android.os.Bundle
 import android.view.animation.Animation
 import android.view.animation.BounceInterpolator
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.addListener
-import androidx.databinding.DataBindingUtil
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import com.morse.bosta.BuildConfig
 import com.morse.bosta.R
@@ -20,19 +18,16 @@ import com.morse.bosta.data.UserResponseItem
 import com.morse.bosta.databinding.ActivitySplashBinding
 import com.morse.bosta.utils.*
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @SuppressLint("CustomSplashScreen")
 @AndroidEntryPoint
-class SplashActivity : AppCompatActivity() {
-
-    var binding: ActivitySplashBinding? = null
+class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_splash) {
+    
     private val vm by viewModels<SplashViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_splash)
-        binding?.apply {
+        binding.apply {
             arabicName = BuildConfig.RIGHT
             englishName = BuildConfig.LEFT
         }
@@ -69,7 +64,7 @@ class SplashActivity : AppCompatActivity() {
         val animatorSet = AnimatorSet()
         val object1: ObjectAnimator =
             ObjectAnimator.ofFloat(
-                binding?.rotateCirculeImageView,
+                binding.rotateCirculeImageView,
                 "scaleX",
                 1f,
                 1.25f,
@@ -79,7 +74,7 @@ class SplashActivity : AppCompatActivity() {
             )
         val object2: ObjectAnimator =
             ObjectAnimator.ofFloat(
-                binding?.rotateCirculeImageView,
+                binding.rotateCirculeImageView,
                 "scaleY",
                 1f,
                 0.75f,
@@ -97,7 +92,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private inline fun animateArabicWord(crossinline doOnEnd: () -> Unit) {
-        binding?.arabicApplicationName?.animateView(R.anim.enter_arabic_word)
+        binding.arabicApplicationName.animateView(R.anim.enter_arabic_word)
             .setUpListener(object : Animation.AnimationListener {
 
                 override fun onAnimationRepeat(p0: Animation?) {
@@ -116,16 +111,16 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun animateEnglishWord() {
-        binding?.englishApplicationName?.animateView(R.anim.enter_english_word)
+        binding.englishApplicationName.animateView(R.anim.enter_english_word)
             .run()
     }
 
     private fun animateScaleBigDot() {
-        binding?.scaleCirculeImageView?.animateView(R.anim.bounce_scale)
+        binding.scaleCirculeImageView.animateView(R.anim.bounce_scale)
             .setInterpolator(BounceInterpolator())
             .setUpListener(object : Animation.AnimationListener {
                 override fun onAnimationStart(p0: Animation?) {
-                    binding?.scaleCirculeImageView?.alpha = 1f
+                    binding.scaleCirculeImageView.alpha = 1f
 
                 }
 
@@ -144,16 +139,16 @@ class SplashActivity : AppCompatActivity() {
         val bottom = 0F
         val right = 0F
         val animatorSet = AnimatorSet()
-        val object1 = ObjectAnimator.ofFloat(binding?.rotateCirculeImageView, "alpha", 0f, 1f)
+        val object1 = ObjectAnimator.ofFloat(binding.rotateCirculeImageView, "alpha", 0f, 1f)
         val object2 = ObjectAnimator.ofFloat(
-            binding?.rotateCirculeImageView,
+            binding.rotateCirculeImageView,
             "translationY",
             bottom,
             0f,
             -310f
         )
         val object3 = ObjectAnimator.ofFloat(
-            binding?.rotateCirculeImageView,
+            binding.rotateCirculeImageView,
             "translationX",
             right,
             0f,
@@ -170,12 +165,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun navigate(user: UserResponseItem) {
-        BostaCoordinator.navigateAfter(direction = ProfileDirection(this, user))
+        BostaCoordinator.navigateAfter( time = 2500L , direction = ProfileDirection(this, user))
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        binding = null
-    }
-
+    
 }
