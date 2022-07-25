@@ -1,5 +1,5 @@
 <p align="center">
-<img src="cover.png"/>
+<img src="[cover](https://user-images.githubusercontent.com/30175940/180797621-2279c5f3-74c5-458a-9613-49223e90a4cc.png)"/>
 </p>
 
 <h1 align="center">Bosta Task</h1>
