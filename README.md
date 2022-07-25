@@ -5,7 +5,6 @@
 <h1 align="center">Bosta Task</h1>
 
 <p align="center">
- <img alt="Medium" src="https://github.com/mohamedebrahim96/Namshi-Customer/workflows/Android%20CI/badge.svg"/></a>
      <a href="https://wakatime.com/badge/github/Devil2020/Bosta.svg"/><img alt="API" src="https://wakatime.com/badge/github/Devil2020/Bosta.svg"/></a>
      <a href="https://github.com/devil2020?tab=followers"><img alt="API" src="https://img.shields.io/github/stars/devil2020?style=social"/></a>
 
