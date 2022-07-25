@@ -23,6 +23,15 @@ Go to the [Releases](https://github.com/Devil2020/Halan/releases/download/v1.0.0
 
 <img src=".images/bosta.gif" align="right" width="32%"/>
 
+
+
+
+
+
+
+
+
+
 ## Tech stack & Open-source libraries
 - Minimum SDK level 21
 - [Kotlin](https://kotlinlang.org/) based, [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) + [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/) for asynchronous.
@@ -39,6 +48,14 @@ Go to the [Releases](https://github.com/Devil2020/Halan/releases/download/v1.0.0
 - [Gson](https://github.com/square/moshi/) - A modern JSON library for Kotlin and Java.
 - [Picasso](https://square.github.io/picasso/)
 - [Material-Components](https://github.com/material-components/material-components-android) - Material design components like ripple animation, cardView.
+
+
+
+
+
+
+
+
 
 ### []()License:
 Copyright 2022 Mohammed Morse
