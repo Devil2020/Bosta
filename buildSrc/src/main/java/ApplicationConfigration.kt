@@ -12,8 +12,8 @@ object ApplicationConfigration {
 
     const val UsersUrl = "\"/users\""
 
-    const val UserAlbumUrl = "\"/albums?{userId}\""
+    const val UserAlbumUrl = "\"/albums\""
 
-    const val AlbumPhotosUrl = "\"/photos?{albumId}\""
+    const val AlbumPhotosUrl = "\"/photos\""
 
 }

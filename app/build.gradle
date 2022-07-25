@@ -7,6 +7,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('D:\\Bosta\\keys\\for_network_usage.jks')
+            storePassword '123456789'
+            keyAlias 'key0'
+            keyPassword '123456789'
+        }
+    }
     compileSdk 32
 
     defaultConfig {
@@ -17,6 +25,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.release
     }
 
     flavorDimensions "core"
@@ -81,13 +90,11 @@ dependencies {
     implementation NetworkLibraries.Retrofit
     //DI
     implementation DI.Hilt
-    implementation 'androidx.appcompat:appcompat:1.4.2'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     kapt DI.HiltKapt
     // UnitTest
     testImplementation TestingLibraries.Junit
     androidTestImplementation TestingLibraries.JunitExtensions
+    testImplementation TestingLibraries.Truth
     // Ui Test
     androidTestImplementation UITestingLibraries.Espresso
 }

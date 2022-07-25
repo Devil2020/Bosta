@@ -28,7 +28,10 @@ object NetworkLibraries {
 }
 
 object ImageLoader {
-    const val Picasso = "com.squareup.picasso:picasso:${Versions.ImageLoader.PicassoVersion}"
+    val Picasso = arrayListOf(
+        "com.squareup.picasso:picasso:${Versions.ImageLoader.PicassoVersion}",
+        "jp.wasabeef:picasso-transformations:2.4.0"
+    )
 }
 
 object Coroutine {
@@ -45,7 +48,8 @@ object MaterialDesignLibraries {
         "androidx.constraintlayout:constraintlayout:${Versions.MaterialDesign.ConstrainLayoutVersion}",
         "androidx.recyclerview:recyclerview:${Versions.MaterialDesign.RecyclerViewVersion}",
         "androidx.cardview:cardview:${Versions.MaterialDesign.CardViewVersion}",
-        "com.google.android.material:material:${Versions.MaterialDesign.MaterialDesignVersion}"
+        "com.google.android.material:material:${Versions.MaterialDesign.MaterialDesignVersion}" ,
+        "com.facebook.shimmer:shimmer:${Versions.MaterialDesign.ShimmerVersion}"
     )
 
 }

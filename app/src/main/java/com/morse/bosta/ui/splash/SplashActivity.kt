@@ -4,13 +4,11 @@ import android.animation.Animator
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.view.animation.BounceInterpolator
-import android.view.animation.Interpolator
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.addListener
 import androidx.databinding.DataBindingUtil
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
@@ -18,16 +16,22 @@ import com.morse.bosta.BuildConfig
 import com.morse.bosta.R
 import com.morse.bosta.app.BostaCoordinator
 import com.morse.bosta.app.ProfileDirection
+import com.morse.bosta.data.UserResponseItem
 import com.morse.bosta.databinding.ActivitySplashBinding
+import com.morse.bosta.utils.*
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @SuppressLint("CustomSplashScreen")
+@AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
+
     var binding: ActivitySplashBinding? = null
+    private val vm by viewModels<SplashViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_splash)
-
         binding?.apply {
             arabicName = BuildConfig.RIGHT
             englishName = BuildConfig.LEFT
@@ -35,13 +39,27 @@ class SplashActivity : AppCompatActivity() {
         animateApplicationName()
     }
 
+    override fun onStart() {
+        super.onStart()
+        collect(vm.user) {
+            when (it) {
+                is Response.Success<*> -> {
+                    val user = it.response as UserResponseItem
+                    navigate(user)
+                }
+                is Response.Error -> {
+                    Toaster.showError(this, "Fail Load User Information , Because ${it.reason}")
+                }
+                else -> {}
+            }
+        }
+    }
+
     private fun animateApplicationName() {
         animateArabicWord {
             animateScaleBigDot()
             animateScaleAndTranslateSmallDot {
-                animateAttentionRuppered {
-                    navigate()
-                }
+                animateAttentionRuppered {}
             }
         }
         animateEnglishWord()
@@ -151,8 +169,8 @@ class SplashActivity : AppCompatActivity() {
         }
     }
 
-    private fun navigate() {
-        BostaCoordinator.navigateAfter(direction = ProfileDirection(this))
+    private fun navigate(user: UserResponseItem) {
+        BostaCoordinator.navigateAfter(direction = ProfileDirection(this, user))
     }
 
     override fun onDestroy() {
@@ -161,20 +179,3 @@ class SplashActivity : AppCompatActivity() {
     }
 
 }
-
-fun View?.animateView(animationRes: Int): View? {
-    this?.animation = AnimationUtils.loadAnimation(this?.context, animationRes)
-    return this
-}
-
-fun View?.setUpListener(listener: Animation.AnimationListener? = null): View? {
-    this?.animation?.setAnimationListener(listener)
-    return this
-}
-
-fun View?.setInterpolator(inter: Interpolator? = null): View? {
-    this?.animation?.interpolator = inter
-    return this
-}
-
-fun View?.run() = this?.animation?.startNow()

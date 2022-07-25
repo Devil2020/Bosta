@@ -18,6 +18,7 @@ object Versions {
         const val RecyclerViewSelectionVersion = "1.1.0"
         const val CardViewVersion = "1.0.0"
         const val MaterialDesignVersion = "1.5.0-alpha05"
+        const val ShimmerVersion = "0.5.0"
     }
 
     object Testing {
@@ -25,7 +26,7 @@ object Versions {
         const val JunitVersion = "4.13.2"
         const val JunitExtensionVersion = "1.1.2"
         const val TestCoreVersion = "1.4.0"
-        const val FalcoonVersion="2.2.0"
+        const val FalcoonVersion = "2.2.0"
         const val TestArcCoreVersion = "2.1.0"
         const val MockitoDexMarkerVersion = "2.28.1"
         const val NhaarmanMockitoVersion = "2.0.0-alpha01"
@@ -46,7 +47,7 @@ object Versions {
     object Kotlin {
         const val CoroutineVersion = "1.5.2"
         const val KotlinVersion = "1.6.21" // here must be same
-        const val CoreKtxVersion= "1.8.0-alpha03"
+        const val CoreKtxVersion = "1.8.0-alpha03"
     }
 
     object Jetpack {
@@ -57,7 +58,7 @@ object Versions {
     }
 
     object DI {
-        const val HiltVersion= "2.42"
+        const val HiltVersion = "2.42"
     }
 
 }

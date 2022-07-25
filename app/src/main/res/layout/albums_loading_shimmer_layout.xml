@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="isLoading"
+            type="Boolean" />
+
+    </data>
+
+    <com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="@{isLoading ? View.VISIBLE : View.GONE}"
+        app:shimmer_auto_start="true">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|center"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp">
+
+            <View
+                android:id="@+id/album1"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:background="@drawable/item_shimmer_background" />
+
+
+            <View
+                android:id="@+id/album2"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:background="@drawable/item_shimmer_background" />
+
+            <View
+                android:id="@+id/album3"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:background="@drawable/item_shimmer_background" />
+
+            <View
+                android:id="@+id/album4"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:background="@drawable/item_shimmer_background" />
+
+            <View
+                android:id="@+id/album5"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:background="@drawable/item_shimmer_background" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</layout>

@@ -1,5 +1,15 @@
 <layout>
 
+    <data>
+
+        <import type="com.morse.bosta.data.UserResponseItem" />
+
+        <variable
+            name="user"
+            type="UserResponseItem" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -37,6 +47,7 @@
             android:ellipsize="end"
             android:gravity="start"
             android:lines="1"
+            setName="@{user.name}"
             android:text="@string/helloMessage"
             android:textAppearance="@style/Baloothambi2_bold"
             android:textSize="@dimen/_20ssp"
@@ -99,6 +110,7 @@
             app:layout_constraintStart_toStartOf="@id/ThirdCardImageView"
             app:layout_constraintTop_toTopOf="@id/ThirdCardImageView"
             app:layout_constraintVertical_bias="0.3"
+            loadImage="@{user.image}"
             tools:src="@tools:sample/avatars" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -109,6 +121,7 @@
             android:ellipsize="end"
             android:gravity="start"
             android:lines="1"
+            android:text="@{user.username}"
             android:textAppearance="@style/Baloothambi2_bold"
             android:textColor="@color/white"
             android:textSize="@dimen/_18ssp"
@@ -127,6 +140,7 @@
             android:ellipsize="end"
             android:gravity="start"
             android:lines="1"
+            android:text="@{user.email}"
             android:textAppearance="@style/Baloothambi2_bold"
             android:textColor="@color/weakwhite"
             android:textSize="@dimen/_18ssp"
@@ -147,6 +161,7 @@
             android:textAppearance="@style/Baloothambi2_bold"
             android:textColor="@color/weakwhite"
             android:textSize="@dimen/_18ssp"
+            android:text="@{user.phone}"
             app:layout_constraintEnd_toEndOf="@id/ThirdCardImageView"
             app:layout_constraintStart_toEndOf="@id/user_iv"
             app:layout_constraintTop_toBottomOf="@id/user_email"
@@ -177,11 +192,21 @@
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/products_tv"
+            tools:itemCount="3"
+            tools:listitem="@layout/album_item_layout" />
+
+        <include
+            android:id="@+id/albumsLoading"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/Design_Right_Starter_GuidLine"
             app:layout_constraintStart_toStartOf="@id/Design_Left_Starter_GuidLine"
             app:layout_constraintTop_toBottomOf="@id/products_tv"
-            tools:listitem="@layout/album_item_layout"
-            tools:itemCount="3"
+            layout="@layout/albums_loading_shimmer_layout"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

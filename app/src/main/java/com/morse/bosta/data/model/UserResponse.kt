@@ -22,7 +22,8 @@ data class UserResponseItem(
     @SerializedName("username")
     val username: String = "", // Bret
     @SerializedName("website")
-    val website: String = "" // hildegard.org
+    val website: String = "", // hildegard.org
+    var image: String = ""
 ) : Parcelable {
     @Parcelize
     data class Address(
@@ -55,4 +56,17 @@ data class UserResponseItem(
         @SerializedName("name")
         val name: String = "" // Romaguera-Crona
     ) : Parcelable
+
+    companion object {
+
+        fun fakeOne() = UserResponseItem(
+            id = 1,
+            name = "devil2020",
+            username = "Mohammed Morse Morse El Sayed Morse Mabrouk" ,
+            address = Address(city = "El Salam City , Zobat Blocks") ,
+            phone = "01119551454" ,
+            image = "https://avatars.githubusercontent.com/u/30175940?v=4"
+        )
+
+    }
 }

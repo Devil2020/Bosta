@@ -2,4 +2,5 @@
     <string name="helloMessage">%1$s مرحبًا</string>
     <string name="happyReviewMessage"> مرحبًا بك في الصفحة الرئيسية , تقييم سعيد &#9995;  </string>
     <string name="albums" > ألبومات </string>
+    <string name="searchlabel">SearchLabel</string>
 </resources>

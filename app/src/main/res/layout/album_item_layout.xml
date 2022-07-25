@@ -8,7 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="@dimen/_10sdp"
-        android:padding="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:paddingHorizontal="@dimen/_5sdp"
         android:layout_margin="@dimen/_5sdp"
         app:cardCornerRadius="@dimen/_5sdp">
 
@@ -28,7 +29,7 @@
                 android:layout_marginStart="@dimen/_5sdp">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/questionMark"
+                    android:id="@+id/albumMark"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_circule_red" />
@@ -45,9 +46,9 @@
             </RelativeLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/questionValue"
+                android:id="@+id/albumName"
                 tools:text="What is your current full-time employee... count?"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_10sdp"
@@ -55,6 +56,7 @@
                 android:layout_toStartOf="@id/nextArrow"
                 android:layout_toEndOf="@id/circuleLayout"
                 android:ellipsize="end"
+                android:layout_weight="3"
                 android:lines="2"
                 android:gravity="center"
                 android:maxLines="2"

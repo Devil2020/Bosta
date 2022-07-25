@@ -27,10 +27,15 @@
     <dimen name="_50sdp">50.00dp</dimen>
     <dimen name="_60sdp">60.00dp</dimen>
     <dimen name="_70sdp">70.00dp</dimen>
+    <dimen name="_80sdp">80.00dp</dimen>
+    <dimen name="_90sdp">90.00dp</dimen>
     <dimen name="_100sdp">100.00dp</dimen>
+    <dimen name="_110sdp">110.00dp</dimen>
     <dimen name="_120sdp">120.00dp</dimen>
     <dimen name="_140sdp">140.00dp</dimen>
+    <dimen name="_150sdp">150.00dp</dimen>
     <dimen name="_160sdp">160.00dp</dimen>
+    <dimen name="_200sdp">200.00dp</dimen>
     <dimen name="_300sdp">300.00dp</dimen>
     <dimen name="_350sdp">350.00dp</dimen>
 

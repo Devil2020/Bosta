@@ -12,4 +12,8 @@ data class AlbumsResponseItem(
     val title: String = "", // quidem molestiae enim
     @SerializedName("userId")
     val userId: Int = 0 // 1
-) : Parcelable
+) : Parcelable {
+    companion object {
+        fun createFakeOne() = AlbumsResponseItem(id = 1, title = "Fake Album Name", userId = 1)
+    }
+}
