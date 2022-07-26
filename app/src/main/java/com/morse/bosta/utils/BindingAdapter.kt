@@ -25,8 +25,15 @@ fun AppCompatImageView.loadImage(url: String) {
 @BindingAdapter("loadPhoto")
 fun AppCompatImageView.loadPhoto(url: String) {
     Picasso.get().load(url)
-        .transform(RoundedCornersTransformation(resources.getDimension(R.dimen._10sdp).toInt() , 0))
+        .transform(RoundedCornersTransformation(resources.getDimension(R.dimen._10sdp).toInt(), 0))
         .placeholder(R.drawable.ic_user_individual_avatar)
         .error(R.drawable.ic_user_individual_avatar)
         .into(this)
+}
+
+
+fun AppCompatImageView.loadPicture(url: String) {
+    Picasso.get().load(url)
+        .placeholder(R.drawable.ic_user_individual_avatar)
+        .error(R.drawable.ic_user_individual_avatar).into(this)
 }

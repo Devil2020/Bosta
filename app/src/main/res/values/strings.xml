@@ -1,6 +1,7 @@
 <resources>
-    <string name="helloMessage" >Hello %1$s </string>
-    <string name="happyReviewMessage" > Welcome to your albums , Happy Browsing &#9995; </string>
-    <string name="albums" > Albums </string>
+    <string name="helloMessage">Hello %1$s </string>
+    <string name="happyReviewMessage"> Welcome to your albums , Happy Browsing &#9995; </string>
+    <string name="albums"> Albums </string>
     <string name="searchlabel">SearchLabel</string>
+    <string name="share">Share</string>
 </resources>

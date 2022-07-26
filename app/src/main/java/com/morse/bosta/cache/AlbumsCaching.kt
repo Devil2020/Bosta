@@ -15,6 +15,8 @@ object AlbumsCaching {
         photos[albumId] = incomingPhotos
     }
 
-    suspend fun loadAlbumPhotos (albumId: Int) = photos[albumId] ?: emptyList()
+    suspend fun loadAlbumPhotos (albumId: Int) : List<PhotosResponseItem>{
+        return  photos[albumId] ?: emptyList()
+    }
 
 }

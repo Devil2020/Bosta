@@ -13,12 +13,14 @@
         <entry key="..\:/Bosta/app/src/main/res/drawable/ic_menu_icon.xml" value="0.2115" />
         <entry key="..\:/Bosta/app/src/main/res/drawable/ic_user_individual_avatar.xml" value="0.2115" />
         <entry key="..\:/Bosta/app/src/main/res/drawable/item_shimmer_background.xml" value="0.2115" />
-        <entry key="..\:/Bosta/app/src/main/res/layout/activity_album_details.xml" value="0.25" />
+        <entry key="..\:/Bosta/app/src/main/res/layout/activity_album_details.xml" value="0.22" />
         <entry key="..\:/Bosta/app/src/main/res/layout/activity_profile.xml" value="0.31614583333333335" />
         <entry key="..\:/Bosta/app/src/main/res/layout/activity_splash.xml" value="0.22" />
+        <entry key="..\:/Bosta/app/src/main/res/layout/activity_zoom_out_and_in.xml" value="0.25" />
         <entry key="..\:/Bosta/app/src/main/res/layout/album_item_layout.xml" value="0.33" />
         <entry key="..\:/Bosta/app/src/main/res/layout/albums_loading_shimmer_layout.xml" value="0.33" />
         <entry key="..\:/Bosta/app/src/main/res/layout/photo_item_layout.xml" value="0.31614583333333335" />
+        <entry key="..\:/Bosta/app/src/main/res/layout/zoom_dialog_layout.xml" value="0.2994791666666667" />
         <entry key="..\:/Bosta/app/src/main/res/menu/search_menu.xml" value="0.31001021450459654" />
       </map>
     </option>

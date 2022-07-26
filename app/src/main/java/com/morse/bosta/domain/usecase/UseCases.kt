@@ -32,7 +32,6 @@ fun executeGetUserAlbumsUseCase(repository: IAlbumsRepository, userId: Int): Flo
 fun executeGetAlbumPhotosUseCase(repository: IAlbumsRepository, albumId: Int): Flow<Response> {
     return repository.loadAlbumPhotos(albumId)
         .map {
-            executeSaveAlbumPhotosUseCase(albumId, it)
             Response.Success(it) as Response
         }
         .onStart { emit(Response.Loading) }
@@ -53,7 +52,3 @@ fun executeSearchPhotosUseCase(
         .onStart { emit(Response.Loading) }
         .catch { emit(Response.Error(it.localizedMessage ?: it.toString())) }
 }
-
-
-private fun executeSaveAlbumPhotosUseCase(albumId: Int, photos: List<PhotosResponseItem>) =
-    AlbumsCaching.saveAlbumPhotos(albumId, photos)

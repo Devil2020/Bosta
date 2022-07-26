@@ -12,7 +12,7 @@ object RetrofitCore {
 
     private val interceptors = arrayListOf(HttpLoggingInterceptor().apply {
         setLevel(HttpLoggingInterceptor.Level.BODY)
-    }, if (false) MockInterceptor() else Interceptor { chain ->
+    }, if (BuildConfig.isTest) MockInterceptor() else Interceptor { chain ->
         val request = chain.request().newBuilder()
         chain.proceed(request.build())
     })

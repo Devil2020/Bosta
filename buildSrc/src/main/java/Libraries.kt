@@ -52,6 +52,8 @@ object MaterialDesignLibraries {
         "com.facebook.shimmer:shimmer:${Versions.MaterialDesign.ShimmerVersion}"
     )
 
+    const val Zooming = "com.jsibbold:zoomage:1.3.1"
+
 }
 
 object TestingLibraries {

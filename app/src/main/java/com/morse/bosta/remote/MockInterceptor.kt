@@ -313,6 +313,14 @@ class MockInterceptor : Interceptor {
             "    }\n" +
             "]"
 
-    private val photosResponse = ""
+    private val photosResponse = "[\n" +
+            "  {\n" +
+            "    \"albumId\": 5,\n" +
+            "    \"id\": 201,\n" +
+            "    \"title\": \"nesciunt dolorum consequatur ullam tempore accusamus debitis sit\",\n" +
+            "    \"url\": \"https://via.placeholder.com/600/250289\",\n" +
+            "    \"thumbnailUrl\": \"https://via.placeholder.com/150/250289\"\n" +
+            "  }\n" +
+            "]"
 
 }

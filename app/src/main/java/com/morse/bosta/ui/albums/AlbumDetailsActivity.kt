@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import com.morse.bosta.R
 import com.morse.bosta.app.BostaCoordinator
 import com.morse.bosta.app.Coordinator
+import com.morse.bosta.app.PhotoZoomInOutDirection
 import com.morse.bosta.data.PhotosResponseItem
 import com.morse.bosta.databinding.ActivityAlbumDetailsBinding
 import com.morse.bosta.utils.*
@@ -31,7 +32,7 @@ class AlbumDetailsActivity :
             BostaCoordinator.back(this)
         }
         adapter = AlbumsPhotosAdapter {
-            // Open Zoom On and Zoom
+            BostaCoordinator.navigate(PhotoZoomInOutDirection(this, it))
         }
     }
 
@@ -42,23 +43,28 @@ class AlbumDetailsActivity :
             album = vm.album
             photosRecyclerview.adapter = adapter
         }
-        observeOnViewModel()
+        vm.loadPhotos()
+        observeOn ()
     }
 
-    private fun observeOnViewModel() {
+    private fun observeOn (){
         collect(vm.albumPhotos) {
-            when (it) {
-                is Response.Loading -> {
+            render(it)
+        }
+    }
 
-                }
-                is Response.Success<*> -> {
-                    adapter.submit(it.response as List<PhotosResponseItem>)
-                }
-                is Response.Error -> {
-                    Toaster.showError(this, "Fail Get Albums Because ${it.reason}")
-                }
-                else -> {
-                }
+    private fun render(it: Response) {
+        when (it) {
+            is Response.Loading -> {
+
+            }
+            is Response.Success<*> -> {
+                adapter.submit(it.response as List<PhotosResponseItem>)
+            }
+            is Response.Error -> {
+                Toaster.showError(this, "Fail Get Albums Because ${it.reason}")
+            }
+            else -> {
             }
         }
     }

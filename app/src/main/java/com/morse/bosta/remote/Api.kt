@@ -16,7 +16,7 @@ interface Api {
     suspend fun getUserAlbums(@Query("userId") userId: Int): List<AlbumsResponseItem>
 
     @GET(BuildConfig.ALBUM_PHOTOS_URL)
-    suspend fun getAlbumPhotos(@Query("albumId") userId: Int): List<PhotosResponseItem>
+    suspend fun getAlbumPhotos(@Query("albumId") albumId: Int): List<PhotosResponseItem>
 
 
 }
