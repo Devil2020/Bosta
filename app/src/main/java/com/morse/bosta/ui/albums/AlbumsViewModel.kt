@@ -11,6 +11,7 @@ import com.morse.bosta.domain.usecase.executeGetUserAlbumsUseCase
 import com.morse.bosta.domain.usecase.executeSearchPhotosUseCase
 import com.morse.bosta.utils.Response
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
@@ -22,7 +23,11 @@ class AlbumsViewModel @Inject constructor(
     val album: AlbumsResponseItem by lazy {
         savedStateHandle[AlbumDetailsActivity.albumKey] ?: AlbumsResponseItem.createFakeOne()
     }
-    private val _albumPhotos = MutableSharedFlow<Response>()
+    private val _albumPhotos = MutableSharedFlow<Response>(
+        replay = 1,
+        extraBufferCapacity = Int.MAX_VALUE,
+        onBufferOverflow = BufferOverflow.DROP_OLDEST
+    )
     val albumPhotos: SharedFlow<Response> get() = _albumPhotos
 
     fun loadPhotos() {

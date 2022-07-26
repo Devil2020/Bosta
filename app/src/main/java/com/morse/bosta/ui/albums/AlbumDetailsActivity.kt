@@ -1,6 +1,7 @@
 package com.morse.bosta.ui.albums
 
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.Menu
 import android.widget.Adapter
 import android.widget.Toolbar
@@ -34,15 +35,14 @@ class AlbumDetailsActivity :
         adapter = AlbumsPhotosAdapter {
             BostaCoordinator.navigate(PhotoZoomInOutDirection(this, it))
         }
-    }
-
-
-    override fun onStart() {
-        super.onStart()
         binding.apply {
             album = vm.album
             photosRecyclerview.adapter = adapter
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
         vm.loadPhotos()
         observeOn ()
     }
