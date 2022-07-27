@@ -25,10 +25,10 @@ class UserRepository @Inject constructor (private val api: Api) : IUserRepositor
     }
 
     private suspend fun loadRandomImages(size: Int): List<String> {
-        val randomNumber = Random(size)
+        val randomNumber = (1..100).random()
         val images = ArrayList<String>()
         for (index in 0..size) {
-            images.add("https://randomuser.me/api/portraits/men/${(1..100).random()}.jpg")
+            images.add("https://randomuser.me/api/portraits/men/$randomNumber.jpg")
         }
         return images
     }

@@ -2,6 +2,8 @@ package com.morse.bosta.app
 
 import android.app.Application
 import com.morse.bosta.BuildConfig
+import com.morse.bosta.cache.AlbumsCaching
+import com.morse.bosta.cache.Cache
 import com.morse.bosta.data.repository.AlbumsRepository
 import com.morse.bosta.data.repository.UserRepository
 import com.morse.bosta.domain.repository.IAlbumsRepository
@@ -24,15 +26,20 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideApi() : Api = RetrofitCore.getGatewayAgent(BuildConfig.BASE_URL)
+    fun provideApi(): Api = RetrofitCore.getGatewayAgent(BuildConfig.BASE_URL)
 
+    @Singleton
+    @Provides
+    fun provideCache (): Cache = AlbumsCaching
 }
 
 @Module
 @InstallIn(ViewModelComponent::class)
 abstract class AppBindsModule {
     @Binds
-    abstract fun injectUserRepository( userRepository: UserRepository ): IUserRepository
+    abstract fun injectUserRepository(userRepository: UserRepository): IUserRepository
+
     @Binds
     abstract fun injectAlbumsRepository(albumsRepository: AlbumsRepository): IAlbumsRepository
+
 }

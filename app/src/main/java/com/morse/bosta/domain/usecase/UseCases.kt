@@ -1,7 +1,5 @@
 package com.morse.bosta.domain.usecase
 
-import com.morse.bosta.cache.AlbumsCaching
-import com.morse.bosta.data.PhotosResponseItem
 import com.morse.bosta.data.UserResponseItem
 import com.morse.bosta.domain.repository.IAlbumsRepository
 import com.morse.bosta.domain.repository.IUserRepository
