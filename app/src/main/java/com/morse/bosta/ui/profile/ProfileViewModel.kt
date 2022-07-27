@@ -8,6 +8,7 @@ import com.morse.bosta.domain.repository.IAlbumsRepository
 import com.morse.bosta.domain.usecase.executeGetUserAlbumsUseCase
 import com.morse.bosta.utils.Response
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.launchIn
@@ -24,7 +25,11 @@ class ProfileViewModel @Inject constructor(
         savedStateHandle[ProfileActivity.userKey] ?: UserResponseItem.fakeOne()
     }
 
-    private val _albums = MutableSharedFlow<Response>()
+    private val _albums = MutableSharedFlow<Response>(
+        replay = 1,
+        extraBufferCapacity = Int.MAX_VALUE,
+        onBufferOverflow = BufferOverflow.DROP_OLDEST
+    )
     val albums: Flow<Response> get() = _albums
 
     init {

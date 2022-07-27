@@ -4,20 +4,23 @@ import com.morse.bosta.data.UserResponseItem
 import com.morse.bosta.domain.repository.IAlbumsRepository
 import com.morse.bosta.domain.repository.IUserRepository
 import com.morse.bosta.utils.Response
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 
 
 fun executeGetUserUseCase(repository: IUserRepository): Flow<Response> {
-    return repository
-        .loadUsers()
-        .combine(repository.loadImages()) { users, images ->
-            users.mapIndexed { index, userResponseItem -> userResponseItem.copy(image = images[index]) }
-        }
-        .map { Response.Success<UserResponseItem>(it.random()) as Response }
+    return combine(
+        repository.loadUsers(),
+        repository.loadImages()
+    ) { users, images ->
+        users.mapIndexed { index, userResponseItem -> userResponseItem.copy(image = images[index]) }
+    }.flowOn(Dispatchers.IO)
+        .map { Response.Success(it.random()) as Response }
         .onStart {
             emit(Response.Loading)
         }
         .catch { emit(Response.Error(it.localizedMessage ?: it.toString())) }
+
 }
 
 fun executeGetUserAlbumsUseCase(repository: IAlbumsRepository, userId: Int): Flow<Response> {
@@ -46,7 +49,7 @@ fun executeSearchPhotosUseCase(
             Response.Success(photoItems.filter { photoItem ->
                 photoItem.title.contains(search)
             }) as Response
-        }
+        }.flowOn(Dispatchers.IO)
         .onStart { emit(Response.Loading) }
         .catch { emit(Response.Error(it.localizedMessage ?: it.toString())) }
 }
