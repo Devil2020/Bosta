@@ -7,7 +7,6 @@ import com.morse.bosta.utils.Response
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 
-
 fun executeGetUserUseCase(repository: IUserRepository): Flow<Response> {
     return combine(
         repository.loadUsers(),

@@ -22,6 +22,7 @@ class ProfileActivity : BaseActivity<ActivityProfileBinding>(R.layout.activity_p
     companion object {
         const val userKey = "UserProfile"
     }
+
     private val vm by viewModels<ProfileViewModel>()
     lateinit var adapter: AlbumsAdapter
 

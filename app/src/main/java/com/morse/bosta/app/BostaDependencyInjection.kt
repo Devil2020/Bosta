@@ -30,7 +30,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideCache (): Cache = AlbumsCaching
+    fun provideCache(): Cache = AlbumsCaching
 }
 
 @Module

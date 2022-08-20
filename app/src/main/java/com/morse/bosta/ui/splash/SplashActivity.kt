@@ -18,6 +18,7 @@ import com.morse.bosta.data.UserResponseItem
 import com.morse.bosta.databinding.ActivitySplashBinding
 import com.morse.bosta.utils.*
 import dagger.hilt.android.AndroidEntryPoint
+import java.net.URLDecoder
 
 @SuppressLint("CustomSplashScreen")
 @AndroidEntryPoint
@@ -48,6 +49,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
                 else -> {}
             }
         }
+
     }
 
     private fun animateApplicationName() {
